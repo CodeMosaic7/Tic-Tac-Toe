@@ -8,38 +8,44 @@ def player_call(player):
 # To edit the list with X and 0 
 def player_play(game_list,sym):
     
-    ask_row=int(input("Enter the position[row]:"))
-    ask_col=int(input("Enter the position[column]:"))
+    ask_row=int(input("Enter the position[row]: "))
+    ask_col=int(input("Enter the position[column]: "))
     if game_list[ask_row][ask_col]=="":
         game_list[ask_row][ask_col]=sym
     else:
         print("Invalid move!")
+        # The `exit(1)` statement is used to exit the program with a status code of 1(generally used to depict error). In this case,
+        # it is used to terminate the program if an invalid move is made.
         exit(1)
    
 # To check if either is winning.
 def game_win(game_list,sym):
-    for row in game_list:
+    for row in game_list:#row wise
+        #The all() function returns True if all items in an iterable are true, otherwise it returns False.
+        #If the iterable object is empty, the all() function also returns True.
         if all(cell == sym for cell in row):
             return True
 
-    for col in range(3):
+    for col in range(3):#column wise
         if all(game_list[row][col] == sym for row in range(3)):
             return True
 
-    if all(game_list[i][i] == sym for i in range(3)) or all(game_list[i][2 - i] == player for i in range(3)):
+    if all(game_list[i][i] == sym for i in range(3)) or all(game_list[i][2 - i] == player for i in range(3)):#First there is left-diagonal and Second there is right diagonal
         return True
 
     return False
     
 #To check if game is a draw.
 def game_draw(li):
-    return all(li[i][j] != "" for i in range(3) for j in range(3))
-
+    return  all(li[i][j] != "" for i in range(3) for j in range(3))
+    # The expression `all(li[i][j] != "" for i in range(3) for j in range(3))` is checking if
+    # all the cells in the game board are filled with a symbol (either "X" or "O").
+    
 #To display the changes made after every move.
 def display(li):
     for i in li:
         for j in i:
-            print("|\t",j,"\t|",end="")
+            print("\t",j,"\t||",end="")
         print("\n")
 
 #main
@@ -55,15 +61,15 @@ while play:
                           ||            ||
                           ||            ||
               =====================================
-                          ||            ||           Let's start the game Player A:XPlayer B:O
-                   1,0    ||     1,1    ||   1,2
-                          ||            ||
+                          ||            ||              Let's start the game 
+                   1,0    ||     1,1    ||   1,2        Player A : X
+                          ||            ||              Player B : O
                           ||            ||              
               =====================================
                           ||            ||
                    2,0    ||    2,1     ||   2,2
                           ||            ||
-                          ||            ||""")
+                          ||            || """)
         game_ini=[["","",""],["","",""],["","",""]]
         player="A"
         sym="X"
@@ -85,6 +91,8 @@ while play:
             else:
                 player="A"
                 sym="X"
-    else:
+    elif inp1 == "n":
         print("Done")
         play=False
+    else:
+        print("Wrong input")
