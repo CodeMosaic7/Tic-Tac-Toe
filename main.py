@@ -52,7 +52,7 @@ def display(li):
 play=True
 while play:
     inp1=input("""Do you want to play Tic-Tac-Toe? 
-           Type y for yes and n for no.""")
+           Type y for yes and n for no. """)
     if inp1=="y":
         print(""" 
 
