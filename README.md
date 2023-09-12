@@ -12,6 +12,7 @@ A classic game of Tic-Tac-Toe for some quick fun and brain exercise!
     ```bash
     cd Tic-Tac-Toe
 3. **Run The Game**
+    ```bash
     python main.py
 ## Quick Tip
 You can copy and paste these commands into your terminal for an even faster setup!
