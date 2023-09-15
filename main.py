@@ -27,7 +27,7 @@ def game_win(game_list,sym):
             return True
 
     for col in range(3):#column wise
-        if all(game_list[row][col] == sym for row in range(3) and game_win==False):
+        if all(game_list[row][col] == sym for row in range(3)):
             return True
 
     if all(game_list[i][i] == sym for i in range(3)) or all(game_list[i][2 - i] == player for i in range(3)):#First there is left-diagonal and Second there is right diagonal
@@ -37,7 +37,7 @@ def game_win(game_list,sym):
     
 #To check if game is a draw.
 def game_draw(li):
-    return  all(li[i][j] != "" for i in range(3) for j in range(3))
+    return  all(li[i][j] != "" for i in range(3) for j in range(3) and game_win(li,sym)==False)
     # The expression `all(li[i][j] != "" for i in range(3) for j in range(3))` is checking if
     # all the cells in the game board are filled with a symbol (either "X" or "O").
     
