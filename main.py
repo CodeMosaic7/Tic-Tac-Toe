@@ -37,7 +37,8 @@ def game_win(game_list,sym):
     
 #To check if game is a draw.
 def game_draw(li):
-    return  all(li[i][j] != "" for i in range(3) for j in range(3) and game_win(li,sym)==False)
+    if game_win(li,sym):
+        return  all(li[i][j] != "" for i in range(3) for j in range(3))
     # The expression `all(li[i][j] != "" for i in range(3) for j in range(3))` is checking if
     # all the cells in the game board are filled with a symbol (either "X" or "O").
     
