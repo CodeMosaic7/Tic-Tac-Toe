@@ -7,7 +7,7 @@ A classic game of Tic-Tac-Toe for some quick fun and brain exercise!
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/CodeMosaic7/Tic-Tac-Toe.git
+   git clone https://github.com/Ag-Utkarsh/Tic-Tac-Toe.git
 2. **Navigate to the game directory**
     ```bash
     cd Tic-Tac-Toe
