@@ -33,7 +33,7 @@ def game_win(game_list,sym):
     
 #To check if game is a draw.
 def game_draw(li):
-    return all(li[i][j] != "" for i in range(3) for j in range(3))
+    return all(li[i][j] != "" and game_win(li,sym)==False for i in range(3) for j in range(3))
 
 #To display the changes made after every move.
 def display(li):
